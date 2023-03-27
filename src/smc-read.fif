@@ -1,0 +1,6 @@
+"TonUtil.fif"   include
+"Asm.fif"       include
+
+// Load code
+"build/acc.tvc" file>B B>boc
+<s ref@+ drop ref@+ <s 32 u@+ ."counter: " swap . cr

@@ -1,0 +1,23 @@
+SETCP0
+ACCEPT
+PUSHREF {
+    SETCP0   ; 1
+    PUSHROOT ; 2
+    CTOS     ; 3
+    PLDU 32  ; 4
+    INC      ; 5
+    NEWC     ; 6
+    STU 32   ; 7
+    ENDC     ; 8
+    POPROOT  ; 9
+}
+SETCODE
+
+; te6ccgEBAgEAGwABDv8A+ACI+wQBAB7/AO1E0NcLH6TIyx/J7VQ=
+; Ordinary   l: 000   bits: 56   refs: 1   data: ff00f80088fb04
+; hashes: 819fddee756e08da67aa58dd14cb015c65f8be41102ea5eeed802114143c7076
+; depths: 1
+; te6ccgEBAQEAEQAAHv8A7UTQ1wsfpMjLH8ntVA==
+;  └─Ordinary   l: 000   bits: 120   refs: 0   data: ff00ed44d0d70b1fa4c8cb1fc9ed54
+;    hashes: c2fded0b20c2bdcc48ea26f5f2bff81cfc36df3668323a925472d3b17c639dd9
+;    depths: 0

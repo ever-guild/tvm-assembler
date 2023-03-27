@@ -1,0 +1,19 @@
+"TonUtil.fif"   include
+"Asm.fif"       include
+
+// Load code
+"build/smc.boc" file>B B>boc =: code
+
+// State
+<b 0 32 u, now 32 u, b> =: init-storage // with salt via time
+// <b 0 32 u, b> =: init-storage // without salt
+<b b{0011} s, code ref, init-storage ref, null dict, b> =: state-init
+state-init 2 boc+>B
+"build/smc-state.boc" B>file
+0 =: workchain-id
+state-init hashu workchain-id swap 2=: smc-addr
+smc-addr .addr
+
+// Message X
+<b b{1000100} s, smc-addr addr, b{000010} s, state-init <s s, b{0} s, b> 2 boc+>B
+"build/smc-message.boc" B>file
